@@ -1,0 +1,20 @@
+English-to-Gujarati Neural Machine Translation Evaluation
+
+Model: OpenNMT Transformer
+Training steps: 10,000
+Held-out test sentences: 19,248
+
+Overall SacreBLEU: 18.85
+
+Length-wise SacreBLEU:
+- Bin 1 (<=10 words): 25.67 (2,675 sentences)
+- Bin 2 (11-19 words): 22.61 (11,896 sentences)
+- Bin 3 (20-29 words): 11.56 (4,540 sentences)
+- Bin 4 (>=30 words): 1.94 (137 sentences)
+
+Observation:
+The highest BLEU score is for sentences containing 10 words or fewer.
+BLEU decreases for longer sentences, suggesting that longer inputs
+are more challenging for this trained translation model. The result
+for sentences with 30 or more words should be interpreted cautiously
+because this group contains only 137 test examples.

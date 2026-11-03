@@ -1,0 +1,59 @@
+save_data: /kaggle/working/opennmt_model/data
+src_vocab: /kaggle/working/opennmt_model/vocab.txt
+tgt_vocab: /kaggle/working/opennmt_model/vocab.txt
+share_vocab: true
+data:
+  corpus_1:
+    path_src: /kaggle/working/bpcc_en_gu/train.en
+    path_tgt: /kaggle/working/bpcc_en_gu/train.gu
+    transforms:
+    - sentencepiece
+    - filtertoolong
+  valid:
+    path_src: /kaggle/working/bpcc_en_gu/valid.en
+    path_tgt: /kaggle/working/bpcc_en_gu/valid.gu
+    transforms:
+    - sentencepiece
+    - filtertoolong
+transforms:
+- sentencepiece
+- filtertoolong
+src_subword_model: /kaggle/working/opennmt_model/sentencepiece.model
+tgt_subword_model: /kaggle/working/opennmt_model/sentencepiece.model
+model_task: seq2seq
+encoder_type: transformer
+decoder_type: transformer
+layers: 4
+hidden_size: 256
+word_vec_size: 256
+transformer_ff: 1024
+heads: 4
+transformer_dropout: 0.1
+dropout: 0.1
+position_encoding: true
+save_model: /kaggle/working/opennmt_model/en_gu
+save_checkpoint_steps: 2000
+train_steps: 10000
+valid_steps: 1000
+warmup_steps: 500
+report_every: 100
+batch_type: tokens
+batch_size: 2048
+valid_batch_size: 2048
+accum_count:
+- 2
+optim: adam
+learning_rate: 2.0
+decay_method: noam
+adam_beta1: 0.9
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+world_size: 1
+gpu_ranks:
+- 0
+seed: 42
+max_generator_batches: 2
+max_relative_positions: 0
+share_embeddings: true
+share_decoder_embeddings: true

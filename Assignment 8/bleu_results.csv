@@ -1,0 +1,6 @@
+Test Subset,Number of Sentences,SacreBLEU
+Overall Test Set,19248,18.85
+Bin 1 (<=10 words),2675,25.67
+Bin 2 (11-19 words),11896,22.61
+Bin 3 (20-29 words),4540,11.56
+Bin 4 (>=30 words),137,1.94
